@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MorfeoWeb</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MorfeoWeb.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1a1a2e;">
+            <div class="container-fluid">
+
+                <a class="navbar-brand fw-bold text-warning" asp-controller="Home" asp-action="Index">
+                    🏨 Hotel Morfeo
+                </a>
+
+                <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#menuPrincipal">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-controller="Home" asp-action="Index">
+                                🏠 Inicio
+                            </a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">
+                                🌍 Geografía
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" asp-controller="Pais" asp-action="Index">🌐 Países</a></li>
+                                <li><a class="dropdown-item" asp-controller="Ciudad" asp-action="Index">🏙️ Ciudades</a></li>
+                                <li><a class="dropdown-item" asp-controller="Localidad" asp-action="Index">📍 Localidades</a></li>
+                                <li><a class="dropdown-item" asp-controller="Barrio" asp-action="Index">🗺️ Barrios</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">
+                                🏨 Hoteles
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" asp-controller="Hotels" asp-action="Index">🏨 Hoteles</a></li>
+                                <li><a class="dropdown-item" asp-controller="TelefonoHotel" asp-action="Index">📞 Teléfonos Hotel</a></li>
+                                <li><a class="dropdown-item" asp-controller="CategoriaEstrellas" asp-action="Index">⭐ Categorías</a></li>
+                                <li><a class="dropdown-item" asp-controller="HistorialCategorias" asp-action="Index">📋 Historial Categorías</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" asp-controller="Habitacion" asp-action="Index">🛏️ Habitaciones</a></li>
+                                <li><a class="dropdown-item" asp-controller="TipoHabitacion" asp-action="Index">🏷️ Tipos de Habitación</a></li>
+                                <li><a class="dropdown-item" asp-controller="EstadoHabitacion" asp-action="Index">🔄 Estados Habitación</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">
+                                👥 RRHH
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" asp-controller="Empleado" asp-action="Index">👤 Empleados</a></li>
+                                <li><a class="dropdown-item" asp-controller="TelefonoEmpleado" asp-action="Index">📞 Teléfonos Empleado</a></li>
+                                <li><a class="dropdown-item" asp-controller="Contrato" asp-action="Index">📄 Contratos</a></li>
+                                <li><a class="dropdown-item" asp-controller="Cargo" asp-action="Index">💼 Cargos</a></li>
+                                <li><a class="dropdown-item" asp-controller="Departamento" asp-action="Index">🏢 Departamentos</a></li>
+                                <li><a class="dropdown-item" asp-controller="Turno" asp-action="Index">🕐 Turnos</a></li>
+                                <li><a class="dropdown-item" asp-controller="AsignarTurno" asp-action="Index">📅 Asignar Turno</a></li>
+                                <li><a class="dropdown-item" asp-controller="TipoContrato" asp-action="Index">📝 Tipos de Contrato</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">
+                                🧳 Huéspedes
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" asp-controller="Huesped" asp-action="Index">🧳 Huéspedes</a></li>
+                                <li><a class="dropdown-item" asp-controller="TelefonoHuesped" asp-action="Index">📞 Teléfonos Huésped</a></li>
+                                <li><a class="dropdown-item" asp-controller="TipoHuesped" asp-action="Index">🏷️ Tipos de Huésped</a></li>
+                                <li><a class="dropdown-item" asp-controller="Mascota" asp-action="Index">🐾 Mascotas</a></li>
+                                <li><a class="dropdown-item" asp-controller="TipoMascota" asp-action="Index">🐶 Tipos de Mascota</a></li>
+                                <li><a class="dropdown-item" asp-controller="AgenciaViajes" asp-action="Index">✈️ Agencias de Viaje</a></li>
+                                <li><a class="dropdown-item" asp-controller="TelefonoAgencia" asp-action="Index">📞 Teléfonos Agencia</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown">
+                                📅 Reservas y Pagos
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" asp-controller="Reserva" asp-action="Index">📅 Reservas</a></li>
+                                <li><a class="dropdown-item" asp-controller="AsignarHabitacion" asp-action="Index">🛏️ Asignar Habitación</a></li>
+                                <li><a class="dropdown-item" asp-controller="AtencionReserva" asp-action="Index">🎯 Atención Reserva</a></li>
+                                <li><a class="dropdown-item" asp-controller="ServicioAdicional" asp-action="Index">🛎️ Servicios Adicionales</a></li>
+                                <li><a class="dropdown-item" asp-controller="HistorialPagos" asp-action="Index">💰 Historial de Pagos</a></li>
+                                <li><a class="dropdown-item" asp-controller="MetodoPago" asp-action="Index">💳 Métodos de Pago</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2026 - MorfeoWeb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

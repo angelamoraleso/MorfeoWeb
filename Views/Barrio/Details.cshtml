@@ -1,0 +1,38 @@
+@model MorfeoWeb.Models.Barrio
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+@{ var localidad = Model?.IdLocalidadNavigation; }
+
+<div>
+    <h4>Barrio</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.nombre_barrio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nombre_barrio)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.nombre_barrio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nombre_barrio)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdLocalidadNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @(localidad != null ? localidad.IdLocalidad.ToString() : "Sin localidad")
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.IdBarrio">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

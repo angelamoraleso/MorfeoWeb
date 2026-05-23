@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace MorfeoWeb.Models;
+
+public partial class Ciudad
+{
+    public int IdCiudad { get; set; }
+
+    public string? NombreCiudad { get; set; }
+
+    public int? IdPais { get; set; }
+
+    public virtual Pai? IdPaisNavigation { get; set; }
+
+    public virtual ICollection<Localidad> Localidads { get; set; } = new List<Localidad>();
+}
