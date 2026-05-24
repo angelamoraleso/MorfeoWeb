@@ -1,47 +1,63 @@
 @model IEnumerable<MorfeoWeb.Models.AsignarHabitacion>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Asignaciones de Habitaciones";
 }
 
-<h1>Index</h1>
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="h2 text-primary m-0">Asignación de Habitaciones</h1>
+            <p class="text-muted">Control de habitaciones asignadas a los huéspedes</p>
+        </div>
+        <a asp-action="Create" class="btn btn-success shadow-sm">
+            Registrar Nueva Asignación
+        </a>
+    </div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.IdHabitacionNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdHuespedNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdReservaNavigation)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdHabitacionNavigation.IdHabitacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdHuespedNavigation.IdHuesped)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdReservaNavigation.IdReserva)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdAsignacion">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdAsignacion">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdAsignacion">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="ps-4">@Html.DisplayNameFor(model => model.IdHabitacionNavigation)</th>
+                            <th>@Html.DisplayNameFor(model => model.IdHuespedNavigation)</th>
+                            <th>@Html.DisplayNameFor(model => model.IdReservaNavigation)</th>
+                            <th class="text-end pe-4">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="ps-4 fw-semibold text-dark">
+                                    Habitación #@Html.DisplayFor(modelItem => item.IdHabitacionNavigation.IdHabitacion)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IdHuespedNavigation.IdHuesped)
+                                </td>
+                                <td>
+                                    Reserva #@Html.DisplayFor(modelItem => item.IdReservaNavigation.IdReserva)
+                                </td>
+                                <td class="text-end pe-4">
+                                    <div class="d-flex justify-content-end gap-2">
+                                        <a asp-action="Edit" asp-route-id="@item.IdAsignacion" class="btn btn-sm btn-outline-primary">
+                                            Editar
+                                        </a>
+                                        <a asp-action="Details" asp-route-id="@item.IdAsignacion" class="btn btn-sm btn-outline-info">
+                                            Ver
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@item.IdAsignacion" class="btn btn-sm btn-outline-danger">
+                                            Eliminar
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

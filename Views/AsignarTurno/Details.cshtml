@@ -1,36 +1,50 @@
 @model MorfeoWeb.Models.AsignarTurno
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles de Asignación";
 }
 
-<h1>Details</h1>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-light py-3">
+                    <h5 class="mb-0 text-center text-secondary">Detalle de Programación Laboral</h5>
+                </div>
+                <div class="card-body p-4">
+                    <div class="row g-3 text-center text-sm-start">
+                        <div class="col-sm-4 text-muted fw-bold">Fecha Programada:</div>
+                        <div class="col-sm-8 text-dark fw-semibold">
+                            @Html.DisplayFor(model => model.Fecha)
+                        </div>
 
-<div>
-    <h4>AsignarTurno</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Fecha)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Fecha)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdEmpleadoNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdEmpleadoNavigation.IdEmpleado)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdTurnoNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdTurnoNavigation.IdTurno)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.IdAsignacionTurno">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+                        <hr class="my-2 d-none d-sm-block" />
+
+                        <div class="col-sm-4 text-muted fw-bold">ID Empleado:</div>
+                        <div class="col-sm-8 text-dark">
+                            #@Html.DisplayFor(model => model.IdEmpleadoNavigation.IdEmpleado)
+                        </div>
+
+                        <hr class="my-2 d-none d-sm-block" />
+
+                        <div class="col-sm-4 text-muted fw-bold">ID Turno / Horario:</div>
+                        <div class="col-sm-8 text-dark">
+                            #@Html.DisplayFor(model => model.IdTurnoNavigation.IdTurno)
+                        </div>
+                    </div>
+
+                    <hr class="my-4" />
+
+                    <div class="d-flex justify-content-center gap-2">
+                        <a asp-action="Edit" asp-route-id="@Model?.IdAsignacionTurno" class="btn btn-warning px-4 text-white">
+                            Editar
+                        </a>
+                        <a asp-action="Index" class="btn btn-outline-secondary px-4">
+                            Volver al listado
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

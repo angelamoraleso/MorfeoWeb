@@ -1,36 +1,50 @@
 @model MorfeoWeb.Models.AsignarHabitacion
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles de Asignación";
 }
 
-<h1>Details</h1>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-light py-3">
+                    <h5 class="mb-0 text-center text-secondary">Ficha de Asignación</h5>
+                </div>
+                <div class="card-body p-4">
+                    <div class="row g-3 text-center text-sm-start">
+                        <div class="col-sm-4 text-muted fw-bold">Habitación:</div>
+                        <div class="col-sm-8 text-dark fw-semibold">
+                            #@Html.DisplayFor(model => model.IdHabitacionNavigation.IdHabitacion)
+                        </div>
 
-<div>
-    <h4>AsignarHabitacion</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdHabitacionNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdHabitacionNavigation.IdHabitacion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdHuespedNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdHuespedNavigation.IdHuesped)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdReservaNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdReservaNavigation.IdReserva)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.IdAsignacion">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+                        <hr class="my-2 d-none d-sm-block" />
+
+                        <div class="col-sm-4 text-muted fw-bold">Huésped:</div>
+                        <div class="col-sm-8 text-dark">
+                            @Html.DisplayFor(model => model.IdHuespedNavigation.IdHuesped)
+                        </div>
+
+                        <hr class="my-2 d-none d-sm-block" />
+
+                        <div class="col-sm-4 text-muted fw-bold">Reserva Vinculada:</div>
+                        <div class="col-sm-8 text-dark">
+                            #@Html.DisplayFor(model => model.IdReservaNavigation.IdReserva)
+                        </div>
+                    </div>
+
+                    <hr class="my-4" />
+
+                    <div class="d-flex justify-content-center gap-2">
+                        <a asp-action="Edit" asp-route-id="@Model?.IdAsignacion" class="btn btn-warning px-4 text-white">
+                            Editar
+                        </a>
+                        <a asp-action="Index" class="btn btn-outline-secondary px-4">
+                            Volver
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

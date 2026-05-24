@@ -1,40 +1,50 @@
 @model MorfeoWeb.Models.AsignarHabitacion
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear Asignación";
 }
 
-<h1>Create</h1>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary text-white py-3">
+                    <h4 class="card-title mb-0">Asignar Habitación</h4>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
 
-<h4>AsignarHabitacion</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="IdHuesped" class="control-label"></label>
-                <select asp-for="IdHuesped" class ="form-control" asp-items="ViewBag.IdHuesped"></select>
+                        <div class="mb-3">
+                            <label asp-for="IdHuesped" class="form-label fw-bold text-secondary">Huésped</label>
+                            <select asp-for="IdHuesped" class="form-select form-select-lg" asp-items="ViewBag.IdHuesped"></select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="IdReserva" class="form-label fw-bold text-secondary">Reserva</label>
+                            <select asp-for="IdReserva" class="form-select form-select-lg" asp-items="ViewBag.IdReserva"></select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="IdHabitacion" class="form-label fw-bold text-secondary">Habitación</label>
+                            <select asp-for="IdHabitacion" class="form-select form-select-lg" asp-items="ViewBag.IdHabitacion"></select>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg shadow-sm">
+                                Guardar Asignación
+                            </button>
+                            <a asp-action="Index" class="btn btn-link text-muted">Volver al listado</a>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="IdReserva" class="control-label"></label>
-                <select asp-for="IdReserva" class ="form-control" asp-items="ViewBag.IdReserva"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdHabitacion" class="control-label"></label>
-                <select asp-for="IdHabitacion" class ="form-control" asp-items="ViewBag.IdHabitacion"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

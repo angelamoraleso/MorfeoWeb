@@ -1,44 +1,54 @@
 @model MorfeoWeb.Models.AsignarTurno
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Turno";
 }
 
-<h1>Edit</h1>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-dark text-white py-3">
+                    <h4 class="card-title mb-0">Modificar Turno Asignado</h4>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                        <input type="hidden" asp-for="IdAsignacionTurno" />
 
-<h4>AsignarTurno</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="IdAsignacionTurno" />
-            <div class="form-group">
-                <label asp-for="Fecha" class="control-label"></label>
-                <input asp-for="Fecha" class="form-control" />
-                <span asp-validation-for="Fecha" class="text-danger"></span>
+                        <div class="mb-3">
+                            <label asp-for="Fecha" class="form-label fw-bold text-secondary">Fecha</label>
+                            <input asp-for="Fecha" class="form-control" />
+                            <span asp-validation-for="Fecha" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="IdEmpleado" class="form-label fw-bold text-secondary">Empleado</label>
+                            <select asp-for="IdEmpleado" class="form-select" asp-items="ViewBag.IdEmpleado"></select>
+                            <span asp-validation-for="IdEmpleado" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="IdTurno" class="form-label fw-bold text-secondary">Turno asignado</label>
+                            <select asp-for="IdTurno" class="form-select" asp-items="ViewBag.IdTurno"></select>
+                            <span asp-validation-for="IdTurno" class="text-danger small"></span>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg shadow-sm">
+                                Actualizar Cambios
+                            </button>
+                            <a asp-action="Index" class="btn btn-link text-muted">Cancelar</a>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="IdEmpleado" class="control-label"></label>
-                <select asp-for="IdEmpleado" class="form-control" asp-items="ViewBag.IdEmpleado"></select>
-                <span asp-validation-for="IdEmpleado" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdTurno" class="control-label"></label>
-                <select asp-for="IdTurno" class="form-control" asp-items="ViewBag.IdTurno"></select>
-                <span asp-validation-for="IdTurno" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

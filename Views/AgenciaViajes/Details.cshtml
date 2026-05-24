@@ -1,24 +1,32 @@
 @model MorfeoWeb.Models.AgenciaViaje
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles de la Agencia";
 }
 
-<h1>Details</h1>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4 text-center">
+                    <div class="bg-light d-inline-block rounded-circle p-3 mb-3">
+                        <i class="bi bi-building text-primary fs-1"></i>
+                    </div>
+                    <h3 class="fw-bold mb-1">@Html.DisplayFor(model => model.Nombre)</h3>
+                    <p class="text-muted small">ID de Agencia: #@Model?.IdAgencia</p>
 
-<div>
-    <h4>AgenciaViaje</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.IdAgencia">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+                    <hr class="my-4" />
+
+                    <div class="d-flex justify-content-center gap-3">
+                        <a asp-action="Edit" asp-route-id="@Model?.IdAgencia" class="btn btn-warning px-4">
+                            <i class="bi bi-pencil me-2"></i>Editar
+                        </a>
+                        <a asp-action="Index" class="btn btn-outline-secondary px-4">
+                            <i class="bi bi-arrow-left me-2"></i>Volver
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
